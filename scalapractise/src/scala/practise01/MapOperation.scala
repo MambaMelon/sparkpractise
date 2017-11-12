@@ -14,7 +14,9 @@ object MapOperation {
     //拉链命令
     val key = Array("zhang", "li", "hua")
     val value = Array(50, 60, "hua")
-    print(key.zip(value).toBuffer)
+    //好用的getOrElse
+    val v = map3.getOrElse("ming", 100)
+    print(map3.toBuffer)
   }
 
 }
