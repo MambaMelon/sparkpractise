@@ -11,7 +11,7 @@ class Employee extends People {
   //03.在子类中重写超类中的抽象方法时，不需要override关键字
 
   //04.抽象字段是一个没有初始值的字段
-  val name: String
+//  val name: String
 }
 
 object Employee {
