@@ -47,15 +47,6 @@ object Test01 {
     val res6 = b.cogroup(c).collect().toParArray
     val res7 = b.cogroup(c,d).collect().toBuffer
 
-    //combineByKey
-    val cb1 = sc.parallelize(List("dog","cat","gnu","salmon","rabbit","turkey","wolf","bear","bee"), 3)
-    val cb2 = sc.parallelize(List(1,1,2,2,2,1,2,2,2), 3)
-    val cb = cb1.zip(cb2)
-    val res8 = cb.combineByKey(List(_), (x:List[String], y:String) => y :: x, (x:List[String], y:List[String]) => x ::: y)
-
-
-
-
     println(res6)
     sc.stop()
 
