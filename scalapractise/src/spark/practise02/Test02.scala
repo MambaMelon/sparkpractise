@@ -42,7 +42,7 @@ object Test02 {
     val resFw1 = fm1.flatMap(x => List(x,x)).collect().toBuffer   //ArrayBuffer(1, 1, 2, 2, 3, 3)
 
 
-    println(resFw2)
+    println(resFw1)
 
   }
 
