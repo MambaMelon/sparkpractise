@@ -12,7 +12,12 @@ object Sougou {
 
     val sogou = sc.textFile("D://SogouQ.txt")
     //日志的第四列以及第五列都为1
-    val sogourdd = sogou.map(_.split("\t")).filter(_(3).toInt == 1).filter(_(4).toInt == 1)
-    println(sogourdd.count)
+    val sogourdd = sogou.map(_.split("\t"))
+    sogourdd.filter(_(3).toInt == 1).filter(_(4).toInt == 1)
+
+    //session查询次数排行榜
+    val session = sogourdd.map(x => (x(1), 1)).reduceByKey(_ + _).map(x => (x._2, x._1)).sortByKey(true).map(x => (x._2, x._1)).collect().toBuffer
+
+    println(session)
   }
 }
