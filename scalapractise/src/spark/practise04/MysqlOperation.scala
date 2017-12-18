@@ -24,5 +24,21 @@ object MysqlOperation {
     //    d_app_token.select("id", "token", "createTime").show()
 //    d_app_token.filter($"id" > 50).show()
 //    d_app_token.groupBy("id").count().show()
+
+    //DataFrame
+    //注册一个临时的视图表，可以直接查询
+    d_app_token.createTempView("t_token")
+    val df = sparkSession.sql("select * from t_token")
+
+    //注册全局的临时视图表，在内置的global_temp中。新的sparksession访问结果一致
+    d_app_token.createGlobalTempView("t_token")
+    sparkSession.sql("select * from global_temp.t_token")
+    sparkSession.newSession().sql("select * from global_temp.t_token")
+
+    //DataSets
+    val caseClassDS = Seq(Person("Andy", 32)).toDS()
+    caseClassDS.show()
   }
 }
+
+case class Person(name:String, age:Long)
