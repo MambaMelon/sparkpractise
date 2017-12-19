@@ -39,8 +39,9 @@ object MyAverage extends Aggregator[Employee, Average, Double] {
 
 
   def main(args: Array[String]): Unit = {
-    val sparkSession = SparkSession.builder().master("local").appName("MysqlOperation").getOrCreate()
-    val ds = sparkSession.read.json("D://employees.json")
+    val sparkSession = SparkSession.builder().master("local").appName("MyAverage").getOrCreate()
+    import sparkSession.implicits._
+    val ds = sparkSession.read.json("D://employees.json").as[Employee]
     val averageSalary = MyAverage.toColumn.name("average_salary")
     val result = ds.select(averageSalary)
     result.show()
