@@ -37,7 +37,23 @@ object MysqlOperation {
 
     //DataSets
     val caseClassDS = Seq(Person("Andy", 32)).toDS()
-    caseClassDS.show()
+
+    val primitiveDS = Seq(1, 2, 3).toDS()
+    //ArrayBuffer(2, 3, 4)
+    val pDS = primitiveDS.map(_+1).collect().toBuffer
+
+    //读取json文件
+    val path = "D://people.json"
+    val peopleDS = sparkSession.read.json(path).as[Person]
+
+    //通过rdd转化数据为DF
+    val peopleDF = sparkSession.read.textFile("D://people.txt")
+      .map(_.split(",")).map(attributes => Person(attributes(0), attributes(1).toInt))
+    peopleDF.createTempView("people")
+    val ageDF = sparkSession.sql(" select * from people p where age > 19 ")
+    //ageDF.map(peo => "age:" + peo(1))
+    ageDF.map(peo => "age:" + peo.getAs[String]("age")).show()
+
   }
 }
 
