@@ -20,7 +20,11 @@ object Class {
     val leo = c1.register("leo")
     c1.students += leo
 
+    val c2 = new Class
+    val jack = c2.register("jack")
 
+    //type mismatch
+//    c1.students += jack
 
   }
 
