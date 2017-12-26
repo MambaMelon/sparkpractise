@@ -1,4 +1,4 @@
-package scala.practise05.day01
+package scala.practise05
 
 /**
   * Created by Melon on 2017/11/17.
