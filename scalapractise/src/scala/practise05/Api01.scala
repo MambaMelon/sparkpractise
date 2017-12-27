@@ -25,5 +25,21 @@ object Api01 extends App {
   val l9 = l.slice(0,2)
   //span 【(List(),List(1, 2, 3, 4))碰到不符合条件的就结束】
   val l10 = l.span(_%2 == 0)
-  println(l.tail)
+  //collect 【List(2, 3, 4, 5, seven1)  实现原理是偏函数，与map实现稍有不同】
+  val collectList = List(1,2,3,4,"seven")
+  val l11 = collectList.collect({
+    case i: Int => i + 1
+    case i: String => i + 1
+  })
+  //copyToArray 【将列表的值赋值到数组中】
+  val arr1 = new Array[Int](4)
+  l.copyToArray(arr1)
+  //flatMap  【xs:List(11, 111, 22, 222)】 【ys:Map(1 -> 111, 2 -> 222)】
+  val xs = Map("a" -> List(11,111), "b" -> List(22,222)).flatMap(_._2)
+  val ys = Map("a" -> List(1 -> 11,1 -> 111), "b" -> List(2 -> 22,2 -> 222)).flatMap(_._2)
+  //flatten 【f1:List(1, 2, 3, 1, 2, 3)】【f2:Set(1, 2, 3)】
+  val f1 = List(Set(1, 2, 3), Set(1, 2, 3)).flatten
+  val f2 = Set(List(1, 2, 3), List(3, 2, 1)).flatten
+
+  l.par.foreach(println)
 }
