@@ -51,8 +51,10 @@ object Api01 extends App {
   val l13 = l.zipAll(lx, x, y)
   //lastIndexOfSlice  【没有匹配结果则返回-1】
   val l14 = l.lastIndexOfSlice(GenSeq[Int](1, 5), 0)
-  //
+  //isDefinedAt  【是否存在某元素】
   val l15 = l.isDefinedAt(3)
+  //lift  【存在某元素，返回其指数，不存在，返回None】
+  val l16 = l.lift(7)
 
-  println(l15)
+  println(l16)
 }
