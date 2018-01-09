@@ -27,7 +27,5 @@ object Test01 extends App {
   }
 
   //3.2 定义tail函数，删除第一个元素
-  def tail(list: List[Int]): List[Int] = {
-
-  }
+//  def tail(list: List[Int]): List[Int] = {}
 }

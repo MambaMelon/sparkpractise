@@ -20,7 +20,7 @@ object TestTraitLazy extends App {
   //lazyPrint: Apple
   apple1.lazyPrint
   //defPrint: Apple
-  apple1.defaPrint
+  apple1.defPrint
 
   //commPrint: Apple
   val apple2= new {
