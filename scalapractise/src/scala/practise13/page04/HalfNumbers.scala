@@ -1,4 +1,4 @@
-package scala.practise13
+package scala.practise13.page04
 
 import scala.collection.mutable.ListMap
 

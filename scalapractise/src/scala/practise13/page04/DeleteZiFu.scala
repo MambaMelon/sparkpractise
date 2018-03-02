@@ -1,4 +1,4 @@
-package scala.practise13
+package scala.practise13.page04
 
 /**
   * 删除公共字符串

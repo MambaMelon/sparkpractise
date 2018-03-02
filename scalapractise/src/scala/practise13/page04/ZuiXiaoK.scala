@@ -1,4 +1,4 @@
-package scala.practise13
+package scala.practise13.page04
 
 /**
   * 输出n个数中最小的k个

@@ -1,4 +1,4 @@
-package scala.practise13
+package scala.practise13.page04
 
 /**
   * 倒排字符串 i am boy => boy am i
