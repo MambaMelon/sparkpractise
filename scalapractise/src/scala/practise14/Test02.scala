@@ -56,6 +56,16 @@ object Test02 extends App {
   def custom_fc(x:Double): scala.collection.immutable.Set[String] = Set(x.toString)
   custom_fc(3.15)
 
+  /** List的模式匹配 */
+  def listPattern(x : List[Int]) = x match {
+    case Nil => println("空元素")
+    case a :: Nil => println("1个元素")
+    case a :: b :: Nil => println("2个元素")
+    case _ => println("n个元素")
+  }
+  val plist1 = List(1,2,3,4)
+  listPattern(plist1)
+
 
 
 
