@@ -41,14 +41,20 @@ object Test02 extends App {
   val m1 = scala.collection.mutable.Map(('a',1), ('b', 2))
   //可以修改
   m1 += (('c', 3))
-  println(m1)
 
   //但是不能指向其它对象，会报错
   //map = scala.collection.mutable.Map(('a',1), ('b', 2))
 
   var m2 = scala.collection.mutable.Map(('a',1), ('b', 2))
   m2 += (('c', 3))
-  println(m2)
+
+  val a = Set("element is contained in set")
+//  type Set = Int => Boolean
+  val b1  = a.contains("element is contained in set")
+  val b2 = a.contains("element is not contained in set")
+  println(b1)
+  def custom_fc(x:Double): scala.collection.immutable.Set[String] = Set(x.toString)
+  custom_fc(3.15)
 
 
 
