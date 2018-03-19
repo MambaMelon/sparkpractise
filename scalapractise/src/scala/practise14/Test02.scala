@@ -38,20 +38,27 @@ object Test02 extends App {
 //    client.showElementType(foo)
 
   //val和var修饰可变对象与不可变对象
-  val m1 = scala.collection.mutable.Map(('a',1), ('b', 2))
+  //val m1 = scala.collection.mutable.Map(('a',1), ('b', 2))
   //可以修改
-  m1 += (('c', 3))
+  //m1 += (('c', 3))
+  //println(m1)
 
   //但是不能指向其它对象，会报错
   //map = scala.collection.mutable.Map(('a',1), ('b', 2))
+  //var m2 = scala.collection.mutable.Map(('a',1), ('b', 2))
+  //m2 += (('c', 3))
+  //println(m2)
 
+  val z = Array((1,2), (3,4), (6,7), (8,9))
+  val (a, _) = z(1)
+  println(a)
   var m2 = scala.collection.mutable.Map(('a',1), ('b', 2))
   m2 += (('c', 3))
 
-  val a = Set("element is contained in set")
+  val s = Set("element is contained in set")
 //  type Set = Int => Boolean
-  val b1  = a.contains("element is contained in set")
-  val b2 = a.contains("element is not contained in set")
+  val b1  = s.contains("element is contained in set")
+  val b2 = s.contains("element is not contained in set")
   println(b1)
   def custom_fc(x:Double): scala.collection.immutable.Set[String] = Set(x.toString)
   custom_fc(3.15)
