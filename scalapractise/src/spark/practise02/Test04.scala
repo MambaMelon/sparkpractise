@@ -46,7 +46,7 @@ object Test04 {
     val resmp = mp.mapPartitions(mpFunc)
 
 
-    println(resmp.collect().toBuffer)
+    println(ress.collect().toBuffer)
   }
 
 }

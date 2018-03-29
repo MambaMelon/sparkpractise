@@ -1,4 +1,4 @@
-package spark.practise01
+package spark.practise02
 
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
   * aggregate
   * cartesian
   */
-object Test01 {
+object Test07 {
 
   def main(args: Array[String]): Unit = {
 
@@ -18,9 +18,10 @@ object Test01 {
       iter.toList.map(x => "[partID:" + index + ", val: " + x + "]").iterator
     }
 
-    //求分区最大值的和
     val rdd1 = sc.parallelize(List(1,2,3,4,5,6), 2)
+    //打印分区内的值
     val result = rdd1.mapPartitionsWithIndex(func).collect
+    //求分区最大值的和
     val res1 = rdd1.aggregate(2)(math.max(_, _), _ + _)   //11
 
     //输出各分区最长字符串
