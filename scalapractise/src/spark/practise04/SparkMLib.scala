@@ -28,8 +28,34 @@ object SparkMLib {
     val movies = sc.textFile("F:\\ml-100k\\u.item")
     val titles = movies.map(line => line.split("\\|").take(2)).
       map(array => (array(0).toInt, array(1))).collectAsMap()
-    //找出用户789评级最高的前5部电影
+    //找出用户789评级最高的前10部电影
     val moviesForUser = ratings.keyBy(_.user).lookup(789)
-    println(moviesForUser.size)
+    val topN = moviesForUser.sortBy(-_.rating).take(10).
+      map(rating => (titles(rating.product),rating.rating))
+
+    println()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
