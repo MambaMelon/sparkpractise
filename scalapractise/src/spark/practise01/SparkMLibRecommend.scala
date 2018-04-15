@@ -1,14 +1,14 @@
-package spark.practise04
+package spark.practise01
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.recommendation.{ALS, Rating}
+import org.apache.spark.{SparkConf, SparkContext}
 /**
-  * SparkMLib操作
+  * SparkMLib操作之推荐
   * Created by admin on 2017/04/10.
   */
-object SparkMLib {
+object SparkMLibRecommend {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("SparkMLib").setMaster("local")
+    val conf = new SparkConf().setAppName("SparkMLibRecommend").setMaster("local")
     val sc = new SparkContext(conf)
     //用户ID  影片ID  星级  时间戳
     val rawData = sc.textFile("F:\\ml-100k\\u.data")
@@ -34,28 +34,6 @@ object SparkMLib {
       map(rating => (titles(rating.product),rating.rating))
 
     println()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   }
 }
